@@ -1,0 +1,60 @@
+package MyFinance;
+
+import java.util.Scanner;
+
+public class Management {
+	private static Account[] accounts = new Account[5];
+	private static int index = 0;
+
+	public static int checkID(String id) {    // 계정 확인
+		for( int i = 0; i < index; i++) {
+			if(accounts[i].getID().contentEquals(id)) {
+				return i;
+			}
+		}
+		return -1;
+	}
+	
+	public static void createAccount() {    // 계정 생성
+		Scanner scan = new Scanner(System.in);
+		
+		System.out.print("아이디: ");
+		String id = scan.nextLine();
+		System.out.print("비밀번호: ");
+		String password = scan.nextLine();
+		System.out.print("이름: ");
+		String name = scan.nextLine();
+		System.out.print("투자회사명: ");
+		String company = scan.nextLine();
+		System.out.print("입금액: ");
+		int deposit = scan.nextInt();
+		System.out.print("수익: ");
+		int income = scan.nextInt();
+		System.out.print("잔고: ");
+		int balance = scan.nextInt();
+		
+		accounts[index] = new Account(id, password, name, company, deposit, income, balance);
+		index++;
+		
+		System.out.println("계정을 생성하였습니다.");
+			
+	}
+	
+	public static void checkBalance() {  // 잔액 조회
+		Scanner scan = new Scanner(System.in);
+		System.out.print("계정 입력");
+		String id = scan.nextLine();
+		
+		int index = checkID(id);
+		if(index != -1) {
+			System.out.printf("계정 %d%n", accounts[index].getBalance());
+		}
+		
+	}
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

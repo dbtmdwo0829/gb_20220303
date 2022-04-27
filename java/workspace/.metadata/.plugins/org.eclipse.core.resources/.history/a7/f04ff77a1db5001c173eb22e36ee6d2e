@@ -1,0 +1,55 @@
+package MyFinance;
+
+import java.util.Scanner;
+
+public class Print {
+
+	public static void main(String[] args) {
+		Account[] me = new Account[10];
+		Scanner scan = new Scanner(System.in);
+		boolean End = false;
+		do {
+			System.out.println("-------------------------------------------");
+			System.out.println("1. ID 생성 | 2. 입금액 | 3. 출금액 | 4. 잔고 조회  ");
+			System.out.println("5. 생성된 ID 확인 | 6. 종료 ");
+			System.out.println("-----------------번호 입력-------------------");
+			int list = scan.nextInt();   
+				
+			switch(list) {
+			case 1 :
+				System.out.println(" ID 생성");
+				createAccount();
+				break;
+			case 2 :
+				System.out.println(" 입금액 ");
+				checkDeposit();
+				break;
+			case 3 :
+				System.out.println(" 출금액 ");
+				checkWithdraw();
+				break;
+			case 4 : 
+				System.out.println(" 잔고 조회 ");
+				checkBalance();
+				break;
+			case 5 : 
+				System.out.println(" 생성된 ID 확인");
+				checkMyAccountList();
+				break;
+			case 6 : 
+				System.out.println(" 종료 ");
+				End = true;
+				break;
+			default :
+				System.out.println(" 올바르지 않은 입력 입니다.");
+					
+			}
+		} while(!End);
+			
+	}
+
+}
+
+	}
+
+}
